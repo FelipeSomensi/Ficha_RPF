@@ -1,23 +1,30 @@
+
 public class Ficha {
 
 	protected String nomePersonagem;
 	private int vidasDoPersonagem;
-	private char classePersonagem;
+	private char classePersonagem; //M = mago, R = rogue
 	private static int totalFichas;
-	Magias magiasPersonagem;
+	protected Magias magiasPersonagem;
+	String tipoDeFicha; //NPC, jogador
 	
 	
 	
 	// não pode ser void pois retorna totalFichas
-	//Cria os dados principais da classe
-	public Ficha (String nomePersonagem) {
-		Ficha.totalFichas++;
-		this.nomePersonagem = nomePersonagem;
-		//this.classePersonagem = classePersonagem; // foi para o IF das classes
-		System.out.println("%%%%%%%%%%%%");
-		System.out.println("O nome do personagem eh: "+ this.nomePersonagem );
-		System.out.println(totalFichas+"° personagem criado");
-		
+	// Cria os dados principais da classe
+	public Ficha (String nomePersonagem, String tipoDeFicha) {
+		this.tipoDeFicha = tipoDeFicha;
+		if (this.tipoDeFicha == "Jogador") {
+			Ficha.totalFichas++;
+			this.nomePersonagem = nomePersonagem;
+			//this.classePersonagem = classePersonagem; // foi para o IF das classes
+			System.out.println("//---------");
+			System.out.println("O nome do personagem eh: "+ this.nomePersonagem );
+			System.out.println(totalFichas+"° personagem criado");
+		} else if(this.tipoDeFicha == "NPC") {
+			this.nomePersonagem = nomePersonagem;
+			System.out.println("O nome do NPC eh: "+ this.nomePersonagem);
+		}
 	}
 	
 	//informa a classe do personagem - necessita de setClassePersonagem
